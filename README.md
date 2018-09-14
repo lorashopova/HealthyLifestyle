@@ -52,8 +52,8 @@ The Web Application consists of the following sections:
  - *Edit your profile*
 
 ## Deliverables
- - *Record a short video showcasing our application - <a href="https://www.youtube.com/watch?v=A830VF6dwhs&feature=youtu.be">Video</a>*
- - *Preview at Telerik Academy Showcase System - <a href="http://best.telerikacademy.com/projects/618/Library">Showcase System</a>*
- - *Source code our application at GitHub - <a href="https://github.com/TeamTheEntertainingLarks/HealthyLifestyle">Preview</a> 
+ - *Record a short video showcasing our application - <a href="https://youtu.be/CUVkTSj34CQ">Video</a>*
+ - *Preview at Telerik Academy Showcase System - <a href="https://best.telerikacademy.com/projects/719/HealthyLifestyle">Showcase System</a>*
+ - *Source code our application at GitHub - <a href="https://github.com/TeamTheEntertainingLarks/HealthyLifestyle">Preview</a>*
  - *Hosted application on a server  - <a href="https://healthy-lifestyle-5aa05.firebaseapp.com/home">Preview</a>*
 
