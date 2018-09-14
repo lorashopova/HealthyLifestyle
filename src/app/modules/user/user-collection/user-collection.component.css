@@ -1,0 +1,46 @@
+.container{
+    max-width: 1200px;
+    margin: 2% auto;
+}
+
+.container > p a{
+    font-weight: bold;
+}
+
+md-toolbar{
+   background-color: rgb(150, 196, 33);
+   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+}
+
+.main-container {
+    margin-left: 12%;
+}
+
+.content-container {
+    margin: 50px 0;
+    border: solid 1px #636363;
+    border-radius: 5px;
+    overflow: hidden;
+    font-size: 18px;
+    width: 80%;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: #4A4A4A;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+md-card-content {
+    margin-top: 25px;
+}
+
+md-card-content p {
+    margin-top: 25px;
+    text-align: justify;
+}

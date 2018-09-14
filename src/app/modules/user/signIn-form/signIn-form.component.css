@@ -1,0 +1,22 @@
+.container{
+    padding-top: 10%;
+    width: 30%;
+    margin: 0 auto;
+}
+
+.user-input {
+    font-size: 1.4em;
+    width: 100%;
+    margin: 2%;
+}
+
+.btn-signin {
+    width: 20%;
+    margin: 0 auto;
+}
+
+.btn-signin button{
+    font-size: 1.0em;
+    width: 20%;
+    margin: 0 auto;
+}

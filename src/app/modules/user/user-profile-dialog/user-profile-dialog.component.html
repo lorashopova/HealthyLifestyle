@@ -1,0 +1,57 @@
+<h2 md-dialog-title>{{header}}</h2>
+<md-dialog-content *ngIf=!changePictureForm>Are you sure?</md-dialog-content>
+<md-dialog-actions *ngIf="!changeEmailForm && !changePictureForm">
+  <button md-button [md-dialog-close]="false">No</button>
+  <button md-button [md-dialog-close]="true">Yes</button>
+</md-dialog-actions>
+
+<md-dialog-actions *ngIf=changeEmailForm>
+  <form [formGroup]="changeEmailForm">
+    <md-input-container class="user-input">
+      <input mdInput [(ngModel)]="oldEmail" placeholder="Current Email" [formControl]="oldEmailFormControl">
+      <md-error *ngIf="oldEmailFormControl.hasError('pattern')">
+        Please enter a valid email address
+      </md-error>
+      <md-error *ngIf="oldEmailFormControl.hasError('required')">
+        Email is <strong>required</strong>
+      </md-error>
+    </md-input-container>
+
+    <md-input-container class="user-input">
+      <input type="password" mdInput [(ngModel)]="password" placeholder="Password" [formControl]="passwordFormControl">
+      <md-error *ngIf="passwordFormControl.hasError('pattern')">
+        Please enter a valid password
+      </md-error>
+      <md-error *ngIf="passwordFormControl.hasError('required')">
+        Password is <strong>required</strong>
+      </md-error>
+    </md-input-container>
+
+    <md-input-container class="user-input">
+      <input mdInput [(ngModel)]="newEmail" placeholder="New Email" [formControl]="newEmailFormControl">
+      <md-error *ngIf="newEmailFormControl.hasError('pattern')">
+        Please enter a valid email address
+      </md-error>
+      <md-error *ngIf="newEmailFormControl.hasError('required')">
+        Email is <strong>required</strong>
+      </md-error>
+    </md-input-container>
+
+    <button md-button [md-dialog-close]="false">No</button>
+    <button md-button [md-dialog-close]="true">Yes</button>
+  </form>
+</md-dialog-actions>
+
+<md-dialog-content *ngIf=changePictureForm>
+  <div>
+    <button class="upload-btn" md-fab type="button" md-raised-button (click)="imgFileInput.click()"><md-icon>insert_photo</md-icon></button>
+    <span *ngIf="upload">Selected photo: {{fileName}}</span>
+    <input hidden type="file" #imgFileInput (change)="detectFile($event)" />
+  </div>
+  <br>
+</md-dialog-content>
+
+<md-dialog-actions *ngIf=changePictureForm>
+  <button md-button [md-dialog-close]="false">Discard</button>
+  <button md-button [md-dialog-close]="true" (click)="imgFileInput">Change</button>
+</md-dialog-actions>

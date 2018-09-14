@@ -1,0 +1,22 @@
+<h2>Create New Workout</h2>
+<form class="workout-form" (ngSubmit)="onSubmit()">
+  <md-input-container class="form-control">
+    <input type="text" mdInput placeholder="Title" name="title" [(ngModel)]="workout.title" class="form-control"
+      [formControl]="titleFormControl" required>
+  </md-input-container>
+  <md-select placeholder="Choose Routine" class="form-control" multiple name="routine" [(ngModel)]="workout.routines" 
+    [formControl]="routinesFormControl" required>
+    <md-option *ngFor="let routine of routines" [value]="routine">
+      {{routine.exercise.name + ' ' + routine.repeatTimes + 'x' + routine.seriesCount}}
+    </md-option>
+  </md-select>
+  <button type="button" class="success routine" md-raised-button (click)='openDialog()'>Add new routine</button>
+  <md-select placeholder="Choose Category" class="form-control" name="category" [(ngModel)]="workout.category" 
+    [formControl]="categoriesFormControl" required>
+    <md-option *ngFor="let category of categories" [value]="category">
+      {{ category }}
+    </md-option>
+  </md-select>
+  <button type="submit" [disabled]="!workoutForm.valid" class="success" md-raised-button>Create Workout</button>
+  <button type="button" (click)="hideForm()" md-raised-button>Cancel</button>
+</form>

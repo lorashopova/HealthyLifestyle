@@ -1,0 +1,52 @@
+.container{
+    width: 50%;
+    margin: 0 auto;
+}
+
+.card {
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.header-image md-icon {
+    font-size:45px;
+    height:45px;
+    width: 45px;
+}
+
+.header-image {
+    margin-right: 2%;
+}
+
+.settings-btn md-icon {
+    font-size:45px;
+    height:45px;
+    width: 45px;
+}
+
+.settings-btn {
+    position: absolute;
+    right: 0;
+}
+
+md-icon{
+    color: #96c421;
+}
+
+.card-actions {
+    margin: auto;
+}
+
+.buttons-container{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+}
+
+button {
+    font-size: 1.0em;
+}
+
+#user-fullname {
+    font-size: 1.2em;
+}

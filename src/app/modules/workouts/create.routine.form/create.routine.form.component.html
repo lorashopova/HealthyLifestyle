@@ -1,0 +1,40 @@
+<div class="form-container">
+  <h2>Create New Routine</h2>
+  <form class="routine-form" [formGroup]="routineForm" (ngSubmit)="onSubmit()">
+    <md-select (change)="addExercise($event)" placeholder="Choose Exercise" class="form-control" name="exercise" 
+          [(ngModel)]="exerciseName" [formControl]="exerciseFormControl" required>
+      <md-option *ngFor="let exercise of exercises" [value]="exercise.name">
+        {{exercise.name}}
+      </md-option>
+      <md-option #add value='showForm'>
+        Add a new exercise
+      </md-option>
+    </md-select>
+    <app-create-exercise *ngIf='showExerciseForm == true' (hideExerciseForm)="hideExerciseForm()"></app-create-exercise>
+    <md-input-container class="form-control">
+      <input type="number" mdInput placeholder="Series" name="series" [(ngModel)]="routine.seriesCount" 
+        [formControl]="seriesFormControl" required>
+      <md-error *ngIf="seriesFormControl.hasError('required')">
+        Series are <strong>required</strong>
+      </md-error>
+    </md-input-container>
+    <md-input-container class="form-control">
+      <input type="number" mdInput placeholder="Repeats" name="repeats" [(ngModel)]="routine.repeatTimes" 
+        [formControl]="repeatsFormControl" required>
+      <md-error *ngIf="repeatsFormControl.hasError('required')">
+        Repeats are <strong>required</strong>
+      </md-error>
+    </md-input-container>
+    <md-input-container class="form-control">
+      <input type="number" mdInput placeholder="Resting" name="resting" [(ngModel)]="routine.restingTime" 
+        [formControl]="restingFormControl" required>
+      <md-error *ngIf="restingFormControl.hasError('required')">
+        Resting is <strong>required</strong>
+      </md-error>
+    </md-input-container>
+    <div class="buttons">
+      <button type="submit" [disabled]="!routineForm.valid" md-raised-button class="success">Create routine</button>
+      <button md-dialog-close type="button" md-raised-button class="cancel">Cancel</button>
+    </div>
+  </form>
+</div>

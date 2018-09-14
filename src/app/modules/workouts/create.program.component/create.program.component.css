@@ -1,0 +1,101 @@
+.workout-form{
+    padding: 20px 100px;
+    color: #3D3838;
+  }
+
+.container {
+    padding: 0 100px;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+}
+
+.form-control, md-select {
+    width: 100%;
+    margin-top: 2%;
+    margin-bottom: 1%;
+}
+.day {
+    width: 12%;
+    height: 120px;
+    background: #b39cdb;
+    float: left;
+    margin-right: 1%;
+    text-align: center;
+    margin-bottom: 2%;
+}
+
+
+
+button.showFormBtn {
+    display: block;
+    margin: 9% auto 7%;
+}
+.dayCount{
+    clear: both;
+}
+.content {
+    margin-bottom: 2%;
+    padding: 20px;
+}
+
+#createProgramBtn{
+    margin-left: 40%;
+    width: 18%;
+}
+button.success {
+  background: #b39cdb;
+  color: #fff;
+}
+
+.removeBtn {
+    float: right;
+    background-color: #f25e4b;
+    color: white;
+    border: 0px 0px 1px 1px solid grey;
+}
+
+.removeBtn:hover {
+    background-color: #db503b;
+    font-weight: bold;
+}
+.removeBtn:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.content .week:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.week {
+    margin-bottom: 4%;
+    margin-top: 3%;
+    padding-top: 2%;
+    padding-left: 8%;
+    border: 1px solid #9A60FF;
+}
+
+.week:nth-child(7n+1) {
+    clear: left;
+}
+
+.hidden {
+    display: none;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+h2 {
+    margin-top: 3%;
+}
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}

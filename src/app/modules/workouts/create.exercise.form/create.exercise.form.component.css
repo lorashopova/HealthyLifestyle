@@ -1,0 +1,44 @@
+.exercise-form{
+    color: #3D3838;
+    margin-bottom: 30px;
+}
+  
+h2 {
+    padding:0 50px;
+    color: #3D3838;
+    text-align: center;
+  }
+
+.form-control, md-select md-option{
+  width: 100%;
+  font-size: 1.2em;
+}
+
+div.buttons{
+  display: block;
+  float: right;
+  margin-top: 1%;
+  margin-bottom: 6%;
+}
+
+button.success {
+  background: #b39cdb;
+  color: #fff;
+}
+
+button.cancel {
+  color: #b39cdb;
+}
+
+md-input-container, md-select{
+  margin-bottom: 20px;
+}
+.preview{
+  width: 100%;
+  margin: 10px 0px 50px;
+}
+
+p {
+  color: #a6a6a6;
+  font-size: 85%;
+}

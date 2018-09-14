@@ -1,0 +1,19 @@
+.calculator-form {
+  color: #4D4D4D;
+}
+
+h3 {
+  text-transform: uppercase;
+  font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+  color: #4A4A4A;
+  ;
+}
+
+.result {
+  color: #4D4D4D;
+  font-size: 15px;
+}
+
+button {
+  margin: 20px 0;
+}

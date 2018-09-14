@@ -1,0 +1,54 @@
+ <div class="container">
+    <div class="subnav">
+        <app-sort [items]="programs"
+            (onOrderByDateAsc)="dataReceivedByDateAsc($event)"
+            (onOrderByDateDesc)="dataReceivedByDateDesc($event)"
+            (onOrderByTitleAsc)="dataReceivedByTitleAsc($event)" 
+            (onOrderByTitleDesc)="dataReceivedByTitleDesc($event)">
+        </app-sort>
+        <button md-button [mdMenuTriggerFor]="create">
+                Create
+        </button>
+        <md-menu #create="mdMenu">
+            <button md-menu-item *ngIf="isAuthenticated()" routerLink="/recipes/create">
+                <md-icon>add_circle_outline</md-icon>
+                <span>Create Recipe</span>
+            </button>
+            <button md-menu-item *ngIf="isAuthenticated()" routerLink="/activities/create">
+                <md-icon>add_circle_outline</md-icon>
+                <span>Create Activity</span>
+            </button>
+            <button md-menu-item *ngIf="isAuthenticated()" routerLink="/programs/create">
+                <md-icon>add_circle_outline</md-icon>
+                <span>Create Program</span>
+            </button>
+        </md-menu>
+        <input type="text" 
+        placeholder="Search for..."
+        [mdAutocomplete]="auto"
+        [formControl]="categoryCtrl"
+        [(ngModel)]="searchWord"
+        class="form-control"
+        (ngModelChange)="search()">
+        <md-autocomplete #auto="mdAutocomplete">
+            <md-option *ngFor="let category of filteredCategories | async" [value]="category">
+                {{ category }}
+            </md-option>
+        </md-autocomplete>
+    </div>
+    <div class="content-container">
+        <md-card *ngFor="let program of programs" class="program-container">
+            <a routerLink="/programs/{{program.title}}">
+                <img md-card-image src="{{program.image.url}}" alt="program-image">
+            </a>
+            <md-card-content>
+                <h3><a class="name" routerLink="/programs/{{program.title}}">{{program.title}}</a></h3>
+                <span class="difficulty" [style.color]=(getDifficultyColor(program.difficulty))><em>{{program.difficulty}}</em></span>
+                <!-- <rating [(ngModel)]="program.likes" [max]="10" [float]="true" [readonly]="true"></rating> -->
+                <div class="desciption">
+                    <span ><em>{{program.description}}</em></span>
+                </div>
+            </md-card-content>
+        </md-card>
+    </div>
+  </div>

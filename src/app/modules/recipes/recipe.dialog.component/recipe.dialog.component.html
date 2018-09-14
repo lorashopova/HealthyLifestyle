@@ -1,0 +1,15 @@
+<h2 md-dialog-title>Share Options</h2>
+<md-dialog-content>
+  <h4>Link to share</h4>
+  <md-input-container>
+    <input #val id="val" type="text" mdInput value="{{pathname}}">
+  </md-input-container>
+</md-dialog-content>
+<md-dialog-actions>
+  <button md-button (click)="copyToClipboard()">
+        Copy Link
+  </button>
+  <button md-button md-dialog-close>
+      Close
+</button>
+</md-dialog-actions>

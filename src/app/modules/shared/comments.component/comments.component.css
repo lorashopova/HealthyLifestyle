@@ -1,0 +1,25 @@
+textarea {
+  padding: 10px;
+  border: 2px solid gray;
+  width: 97%;
+}
+
+button {
+  background-color: #95C420;
+}
+
+.comments-form {
+  margin-top: 50px;
+}
+
+div{
+  text-align: right;
+  color: #636363;
+  font-size: 10px;
+  clear: both;
+}
+
+.btn{
+  text-align: right;
+  margin-top: 10px;
+}

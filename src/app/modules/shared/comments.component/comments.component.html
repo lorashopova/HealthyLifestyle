@@ -1,0 +1,6 @@
+<form class="comments-form" *ngIf="isAuthenticated()" #commentAddForm="ngForm" (ngSubmit)="onSubmit()">
+        <textarea name="textComment" [(ngModel)]="textComment" id='textComment' rows="4" placeholder="Leave a comment" maxlength="300"
+                minlength="2" required #comment></textarea>
+        <div>{{comment.value.length}} / 300</div>
+                <div class="btn"><button type="submit" [disabled]="!commentAddForm.valid" md-raised-button>Add Comment</button></div>
+</form>

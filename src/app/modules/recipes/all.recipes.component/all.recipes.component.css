@@ -1,0 +1,84 @@
+.recipe-container {
+      margin: 15px;
+      border: solid 1px #636363;
+      border-radius: 5px;
+      overflow: hidden;
+      font-size: 18px;
+      /* max-width: 17rem;
+      height: 500px; */
+}
+
+button {
+      font-size: 14px;
+      border-radius: 5px;
+      margin-right: 10px;
+}
+
+md-card md-icon {
+      color: #96c421;
+}
+
+a {
+      text-decoration: none;
+      cursor: pointer;
+      color: #4A4A4A;
+      font-weight: bold;
+}
+
+a:hover {
+      text-decoration: underline;
+}
+
+.container {
+      max-width: 1200px;
+      margin: 0 auto;
+}
+
+input[type=text] {
+      padding: 10px;
+      font-size: 14px;
+      border-radius: 5px;
+}
+
+.subnav {
+      text-align: right;
+      clear: both;
+}
+
+md-card-content {
+      margin-top: 25px;
+}
+
+md-card-content p {
+      margin-top: 25px;
+}
+
+rating {
+      float: right;
+}
+
+.createdOn {
+      display: inline-block;
+}
+
+.wrapper {
+      display: flex;
+      -webkit-flex-direction: row;
+      flex-direction: row;
+}
+
+.content-container {
+      flex: 1;
+      margin-right: 10%;
+      /* display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      flex-direction: row;
+      max-width: 70rem; */
+}
+
+app-calorie-calculator {
+      width: 12rem;
+      /* max-width: 12rem; */
+      margin-top: 20px;
+}

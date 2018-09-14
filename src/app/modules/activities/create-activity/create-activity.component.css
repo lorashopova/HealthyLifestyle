@@ -1,0 +1,41 @@
+.container {
+  width: 60%;
+  margin: 0 auto;
+  }
+  
+h2{
+    padding:0 100px;
+  }
+
+.form-control{
+    width: 100%;
+  }
+
+  .upload-control{
+    margin-bottom: 4%;
+  }
+
+.form-control, md-select md-option {
+    font-size: 1.2em;
+  }
+
+.btn-container {
+    width: 30%;
+    margin: 0 auto;
+  }
+
+  .btn-container button {
+    margin: 5%;
+    }
+
+.upload button {
+    margin-top: 2%;
+}
+
+.upload {
+  margin-bottom: 2%;
+  }
+
+md-input-container, md-select{
+    margin-bottom: 20px;
+  }

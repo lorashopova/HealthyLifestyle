@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="subnav">
+        <app-sort [items]="activities" (onOrderByDateAsc)="dataReceivedByDateAsc($event)" (onOrderByDateDesc)="dataReceivedByDateDesc($event)"
+            (onOrderByTitleAsc)="dataReceivedByTitleAsc($event)" (onOrderByTitleDesc)="dataReceivedByTitleDesc($event)"></app-sort>
+        <button md-button [mdMenuTriggerFor]="create">
+                Create
+        </button>
+        <md-menu #create="mdMenu">
+            <button md-menu-item *ngIf="isAuthenticated()" routerLink="/recipes/create">
+                <md-icon>add_circle_outline</md-icon>
+                <span>Create Recipe</span>
+            </button>
+            <button md-menu-item *ngIf="isAuthenticated()" routerLink="/activities/create">
+                <md-icon>add_circle_outline</md-icon>
+                <span>Create Activity</span>
+            </button>
+            <button md-menu-item *ngIf="isAuthenticated()" routerLink="/programs/create">
+                <md-icon>add_circle_outline</md-icon>
+                <span>Create Program</span>
+            </button>
+        </md-menu>
+
+        <input type="text" placeholder="Search for..." [mdAutocomplete]="auto" [formControl]="categoryCtrl" [(ngModel)]="searchWord"
+            class="form-control" (ngModelChange)="search()">
+        <md-autocomplete #auto="mdAutocomplete">
+            <md-option *ngFor="let category of filteredCategories | async" [value]="category">
+                {{ category }}
+            </md-option>
+        </md-autocomplete>
+    </div>
+
+    <button md-fab color="primary" class="map-btn" (click)="openDialog()"><md-icon>place</md-icon></button>
+
+    <div class="activities-container">
+        <div *ngFor="let activity of activities">
+            <app-activity [activity]=activity [activityId]=activity.$key></app-activity>
+        </div>
+    </div>
+</div>

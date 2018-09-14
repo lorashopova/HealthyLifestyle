@@ -1,0 +1,45 @@
+<div class="container">
+  <h2>Create New Article</h2>
+  <form class="article-form" [formGroup]="articleForm" (ngSubmit)="onSubmit()">
+    <md-input-container class="form-control">
+      <input type="text" mdInput placeholder="Title" name="title" required [(ngModel)]="title" [formControl]="titleFormControl">
+      <md-icon mdSuffix>mode_edit</md-icon>
+      <md-error *ngIf="titleFormControl.hasError('pattern')">
+        Please enter a valid title
+      </md-error>
+      <md-error *ngIf="titleFormControl.hasError('minlength')">
+        Title must be at least 10 characters long
+      </md-error>
+      <md-error *ngIf="titleFormControl.hasError('maxlength')">
+        Title must be maximum 100 characters long
+      </md-error>
+      <md-error *ngIf="titleFormControl.hasError('required')">
+        Title is <strong>required</strong>
+      </md-error>
+    </md-input-container>
+    <md-input-container class="form-control">
+      <textarea mdInput placeholder="Short Description" name="description" #descriptionsLength maxlength="500" required [(ngModel)]="description" [formControl]="descriptionFormControl" ></textarea>
+      <md-hint align="end">{{descriptionsLength.value.length}} / 500</md-hint>
+      <md-error *ngIf="descriptionFormControl.hasError('pattern')">
+        Please enter a valid description
+      </md-error>
+      <md-error *ngIf="descriptionFormControl.hasError('minlength')">
+        Description must be at least 100 characters long
+      </md-error>
+      <md-error *ngIf="descriptionFormControl.hasError('maxlength')">
+        Description must be maximum 500 characters long
+      </md-error>
+      <md-error *ngIf="descriptionFormControl.hasError('required')">
+        Description is <strong>required</strong>
+      </md-error>
+    </md-input-container>
+    <div class="upload">
+      <button type="button" md-raised-button (click)="imgFileInput.click()">Add image</button>
+      <div *ngIf="upload">
+        Selected image: {{upload?.name}}
+      </div>
+      <input hidden type="file" #imgFileInput (change)="detectFile($event)" />
+    </div>
+    <button type="submit" md-raised-button [disabled]="!articleForm.valid">Create Article</button>
+  </form>
+</div>

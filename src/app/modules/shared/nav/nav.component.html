@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="logo">
+        <a routerLink="/"><img src="/assets/images/logo.jpg" alt="logo"></a>
+    </div>
+    <div class="navigation">
+        <ul>
+            <li>
+                <button md-button routerLink="/" class="mat-button">
+                    <md-icon>home</md-icon>
+                    Home
+                </button>
+            </li>
+            <li>
+                <button md-button [mdMenuTriggerFor]="food">
+                        <md-icon>menu</md-icon>
+                        Food
+                    </button>
+                <md-menu #food="mdMenu">
+                    <a md-menu-item routerLink="recipes/all">
+                        <md-icon>subject</md-icon>
+                        Recipes
+                    </a>
+                    <a md-menu-item routerLink="nutrition/all">
+                        <md-icon>subject</md-icon>
+                        Nutrition
+                    </a>
+                </md-menu>
+            </li>
+            <li>
+                <button md-button [mdMenuTriggerFor]="fitness">
+                        <md-icon>menu</md-icon>
+                        Fitness
+                    </button>
+                <md-menu #fitness="mdMenu">
+                    <a md-menu-item routerLink="programs">
+                        <md-icon>subject</md-icon>
+                        Programs
+                    </a>
+                    <a md-menu-item routerLink="activities/all">
+                        <md-icon>subject</md-icon>
+                        Activities
+                    </a>
+                </md-menu>
+            </li>
+            <li class="user-container">
+                <a *ngIf="isAuthenticated" md-button routerLink="user/profile">
+                    <img class="nav-image" *ngIf="userProfileImageUrl" [src]=[userProfileImageUrl]>
+                    <img class="nav-image" *ngIf="!userProfileImageUrl" src="../../../assets/images/default-profile.png">
+                    <span>{{getCurrentUserDisplayName()}}</span>
+                </a>
+                <a *ngIf="!isAuthenticated" md-button routerLink="user/sign-in">
+                    <img class="nav-image" *ngIf="!isAuthenticated" src="../../../assets/images/default-profile.png"> {{getCurrentUserDisplayName()}}
+                </a>
+            </li>
+            <li>
+                <button routerLink="user/sign-in" *ngIf="!isAuthenticated" md-raised-button color="primary">Sign In</button>
+                <button routerLink="user/sign-up" *ngIf="!isAuthenticated" md-raised-button color="primary">Sign Up</button>
+                <button (click)="signOut()" *ngIf="isAuthenticated" md-button> <md-icon>exit_to_app</md-icon> Logout</button>
+            </li>
+        </ul>
+    </div>
+    <div class="clearfix"></div>
+</div>

@@ -1,0 +1,74 @@
+h1 {
+    text-align: center;
+    margin-top: 2%;
+}
+
+.container {
+    height: 100%;
+    margin-top: 3%;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.container:after{
+  content: "";
+  display: table;
+  clear: both;
+}
+img {
+    width: 10%;
+    height: 110px;
+    float: left;
+    margin: 2% 15% 2%;
+} 
+
+.image {
+    float: left;
+    width: 40%;
+    text-align: center;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.id {
+    float: left;
+    width: 5%;
+    text-align: center;
+    border-right: 1px solid grey;
+}
+.name {
+    float: left;
+    width: 24%;
+    text-align: center;
+    border-right: 1px solid grey;
+}
+
+.count {
+    float: left;
+    width: 10%;
+    text-align: center;
+    border-left: 1px solid grey;
+}
+
+.routine {
+    clear: both;
+    width: 100%;
+    height: 30%;
+}
+
+.info {
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-weight: bold;
+    border-bottom: 1px solid grey;
+    text-align: center;
+    background-color: #7054a5;
+    color: white;
+}
+
+.values {
+    padding-top: 4%;
+    padding-bottom: 6%;
+}

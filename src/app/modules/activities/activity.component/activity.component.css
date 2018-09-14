@@ -1,0 +1,105 @@
+.container {
+    width: 1000px;
+    height: 100%;
+    flex: auto;
+    font-size: 1.2em;
+    margin: 50px auto;
+}
+
+.container button {
+    font-size: 0.8em;
+    border-radius: 5px; 
+    margin-right: 10px;
+}
+
+.container md-card {
+    border-radius: 1%;
+}
+
+.md-icon-green {
+    color: #96c421;
+}
+
+.activity-image {
+    border-radius: 1%;
+    max-height: 650px;
+}
+
+.subnav {
+    text-align: right;
+    clear: both;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+.settings-btn {
+    position: absolute;
+    right: 0;
+}
+
+.settings-btn md-icon {
+    font-size:40px;
+    height:40px;
+    width: 40px;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: #636363;
+    font-weight: bold;
+}
+
+a:hover {
+     text-decoration: underline; 
+}
+
+md-card-content{
+    margin-top: 25px; 
+}
+
+md-card-content p{
+    margin-top: 25px;
+}
+
+agm-map {
+    height: 400px;
+}
+
+.comments-container md-card-header {
+    border-bottom: 1px solid #EEE8E8;
+    margin: 0;
+    padding: 10px;
+    background-color: #F6F6F6;
+  }
+  
+.comments-container md-card-content {
+    border-top: 1px solid #EEE8E8;
+    margin: 0;
+    padding: 10px;
+    text-align: justify;
+}
+  
+.comments-container {
+    margin: 20px 0;
+    border: 1px solid gray;
+}
+
+.comments-title{
+    color: #86AF1D;
+}
+
+.comments span {
+    display: inline-block;
+    color: #86AF1D;
+    background-color: #E0E0E0;
+    width: 25px;
+      height: 20px;
+      -moz-border-radius: 50px;
+      -webkit-border-radius: 50px;
+    border-radius: 50px;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+  

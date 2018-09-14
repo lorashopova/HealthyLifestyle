@@ -1,0 +1,113 @@
+<div *ngIf="type == 'view'" class="subnav">
+    <a md-button routerLink="/activities">
+        <md-icon>menu</md-icon>
+        Back to Activities
+    </a>
+    <a md-button class="create" *ngIf="isAuthenticated()" routerLink="/activities/create">
+        <md-icon>add</md-icon>
+        Create New
+    </a>
+</div>
+<div class="wrapper">
+    <div *ngIf="activity || (activityLoaded | async)" class="container">
+        <md-card>
+            <img *ngIf="activity.image" class="activity-image" md-card-image src="{{activity.image?.url}}" alt="activity-image">
+            <md-card-content>
+                <h3><a routerLink="/activities/{{activityId}}">{{activity.title}}</a></h3>
+                <p class="createdOn">
+                    <span *ngIf="type == 'view'">by {{activity.author}} <strong>|</strong> on {{activity.createdOn | date}}</span>
+                </p>
+                <p class="eventDate">
+                    <span><md-icon class="md-icon-green">access_time</md-icon> {{activity.eventDate | date:'medium'}}</span>
+                </p>
+                <p>
+                    <span><md-icon class="md-icon-green">place</md-icon> {{activity?.location}}</span>
+                </p>
+                <!-- <p *ngIf="type == 'view'">
+                    <agm-map [zoom]="15" [latitude]="activity.location.lat" [longitude]="activity.location.lng">
+                        <agm-marker [latitude]="activity.location.lat" [longitude]="activity.location.lng"></agm-marker>
+                    </agm-map>
+                </p> -->
+                <p>
+                    <span *ngIf="type == 'view'"><md-icon class="md-icon-green">group</md-icon> {{participantsCount}}</span>
+                </p>
+                <p>
+                    <span *ngIf="type == 'view'"><em>{{activity.category}}</em></span>
+                </p>
+                <rating [(ngModel)]="activity.likes" [max]="10" [float]="true" [readonly]="true"></rating>
+                <p>
+                    <span><em>{{activity.description}}</em></span>
+                </p>
+                <hr *ngIf="!(type == 'view')">
+                <div *ngIf="type == 'view'">
+                    <span><em>{{activity.additionalInfo}}</em></span>
+                    <hr>
+                </div>
+            </md-card-content>
+            <md-card-actions class="user-actions" *ngIf="(isAuthenticated() && !isAuthor(activity.userId) && !isParticipating())">
+                <button md-button (click)="rateActivity(activity.$key)">
+                        <md-icon class="md-icon-green">star_rate</md-icon>
+                        Like
+                    </button>
+                <button md-button (click)="participate()">
+                        <md-icon class="md-icon-green">group</md-icon>
+                        Participate
+                    </button>
+                <button md-button>
+                        <md-icon class="md-icon-green">share</md-icon>
+                        Share
+                    </button>
+            </md-card-actions>
+            <md-card-actions class="user-actions" *ngIf="(isAuthenticated() && !isAuthor(activity.userId) && isParticipating())">
+                <button md-button (click)="rateActivity(activity.$key)">
+                        <md-icon class="md-icon-green">star_rate</md-icon>
+                        Like
+                    </button>
+                <button md-button color="warn" (click)="leave()">
+                        <md-icon>clear</md-icon>
+                        Leave
+                    </button>
+                <button md-button>
+                        <md-icon class="md-icon-green">share</md-icon>
+                        Share
+                    </button>
+            </md-card-actions>
+            <md-card-actions *ngIf="(isAuthenticated() && isAuthor(activity.userId))">
+                <button md-button (click)="navigateToEdit()">
+                        <md-icon class="md-icon-green">edit</md-icon>
+                        Edit
+                    </button>
+                <button md-button color="warn" (click)="delete()">
+                        <md-icon>delete</md-icon>
+                        Delete
+                    </button>
+            </md-card-actions>
+        </md-card>
+        <div *ngIf="type == 'view'">
+            <div class="comments">
+                <h3 class="comments-title">Comments</h3>
+                <span *ngIf="activity.comments">{{commentsLength}}</span>
+                <div *ngIf="activity.comments">
+                    <div *ngFor="let comment of activity?.comments">
+                        <md-card class="comments-container">
+                            <md-card-header>
+                                <img md-card-avatar src="{{comment.profileImage.url}}">
+                                <md-card-title>{{comment.username}}</md-card-title>
+                                <md-card-subtitle>on {{comment.date | date}}</md-card-subtitle>
+                            </md-card-header>
+                            <md-card-content>
+                                <p>
+                                    {{comment.textComment}}
+                                </p>
+                            </md-card-content>
+                        </md-card>
+                    </div>
+                </div>
+                <div *ngIf="!activity?.comments">
+                    <p> No Comments yet</p>
+                </div>
+            </div>
+            <app-comments></app-comments>
+        </div>
+    </div>
+</div>

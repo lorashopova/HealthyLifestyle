@@ -1,0 +1,73 @@
+<div *ngIf="createdActivities?.length > 0" class="container">
+  <md-toolbar><a (click)="createdActivitiesToggle.hidden = !createdActivitiesToggle.hidden">Created Activities ({{createdActivities?.length}})</a></md-toolbar>
+  <div #createdActivitiesToggle class="activities-container" hidden>
+    <div *ngFor="let activity of createdActivities">
+      <app-activity [activity]=activity [activityId]=activity.$key></app-activity>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="createdActivities?.length == 0" class="container">
+  <md-toolbar><a href="/activities/create">Created Activities (0)</a></md-toolbar>
+  <p><em>Your collection is empty. Click <a href="/activities/create"> here </a>to create one.</em></p>
+</div>
+
+<div *ngIf="joinedActivities?.length > 0" class="container">
+  <md-toolbar><a (click)="joinedActivitiesToggle.hidden = !joinedActivitiesToggle.hidden">Joined Activities ({{joinedActivities?.length}})</a></md-toolbar>
+  <div #joinedActivitiesToggle class="activities-container" hidden>
+    <div *ngFor="let activity of joinedActivities">
+      <app-activity [activity]=activity [activityId]=activity.$key></app-activity>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="joinedActivities?.length == 0" class="container">
+  <md-toolbar><a href="/activities/all">Joined Activities (0)</a></md-toolbar>
+  <p><em>Your collection is empty. Click <a href="/activities/all"> here </a>to explore and participate.</em></p>
+</div>
+
+<div *ngIf="createdArticles?.length > 0" class="container">
+  <md-toolbar><a (click)="createdArticlesToggle.hidden = !createdArticlesToggle.hidden">Created Articles ({{createdArticles?.length}})</a></md-toolbar>
+  <div #createdArticlesToggle class="main-container" hidden>
+    <md-card *ngFor="let article of createdArticles" class="content-container">
+      <img md-card-image src="{{article?.image.url}}" alt="image">
+      <md-card-content>
+        <h3>{{article?.title}}</h3>
+        <p class="createdOn">
+          <span>published on {{article?.createdOn | date}}</span>
+        </p>
+        <p>
+          <span><em>{{article?.description}}</em></span>
+        </p>
+      </md-card-content>
+    </md-card>
+  </div>
+</div>
+
+<div *ngIf="createdArticles?.length == 0" class="container">
+  <md-toolbar><a href="/nutrition/create">Created Articles (0)</a></md-toolbar>
+  <p><em>Your collection is empty. Click <a href="/nutrition/create"> here </a>to create one.</em></p>
+</div>
+
+<div *ngIf="createdRecipes?.length > 0" class="container">
+  <md-toolbar><a (click)="createdRecipesToggle.hidden = !createdRecipesToggle.hidden">Created Recipes ({{createdRecipes?.length}})</a></md-toolbar>
+  <div #createdRecipesToggle class="main-container" hidden>
+    <md-card *ngFor="let recipe of createdRecipes" class="content-container">
+      <img md-card-image src="{{recipe?.image}}" alt="recipe-image">
+      <md-card-content>
+        <h3><a routerLink="/recipes/{{recipe.$key}}">{{recipe.title}}</a></h3>
+        <p class="createdOn">
+          <span>{{recipe?.createdOn | date}}</span>
+        </p>
+        <p>
+          <span><em>{{recipe?.description}}</em></span>
+        </p>
+      </md-card-content>
+    </md-card>
+  </div>
+</div>
+
+<div *ngIf="createdRecipes?.length == 0" class="container">
+  <md-toolbar><a href="/recipes/create">Created Recipes (0)</a></md-toolbar>
+  <p><em>Your collection is empty. Click <a href="/recipes/create"> here </a>to create one.</em></p>
+</div>

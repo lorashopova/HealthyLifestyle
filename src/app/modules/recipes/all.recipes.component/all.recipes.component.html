@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="subnav">
+        <app-sort [items]="recipes" (onOrderByDateAsc)="dataReceivedByDateAsc($event)" (onOrderByDateDesc)="dataReceivedByDateDesc($event)" (onOrderByTitleAsc)="dataReceivedByTitleAsc($event)"  (onOrderByTitleDesc)="dataReceivedByTitleDesc($event)"></app-sort>
+        <button md-button *ngIf="isAuthenticated()" [mdMenuTriggerFor]="create">
+                Create
+        </button>
+        <md-menu #create="mdMenu">
+            <button md-menu-item routerLink="/recipes/create">
+                <md-icon>add_circle_outline</md-icon>
+                <span>Create Recipe</span>
+            </button>
+            <button md-menu-item routerLink="/activities/create">
+                <md-icon>add_circle_outline</md-icon>
+                <span>Create Activity</span>
+            </button>
+            <button md-menu-item routerLink="/nutrition/create">
+                <md-icon>add_circle_outline</md-icon>
+                <span>Create Article</span>
+            </button>
+            <button md-menu-item routerLink="/programs/create">
+                <md-icon>add_circle_outline</md-icon>
+                <span>Create Program</span>
+            </button>
+        </md-menu>
+        <input type="text" 
+        placeholder="Search for..."
+        [mdAutocomplete]="auto"
+        [formControl]="categoryCtrl"
+        [(ngModel)]="searchWord"
+        class="form-control"
+        (ngModelChange)="search()">
+        <md-autocomplete #auto="mdAutocomplete">
+            <md-option *ngFor="let category of filteredCategories | async" [value]="category">
+                {{ category }}
+            </md-option>
+        </md-autocomplete>
+    </div>
+    <div class="wrapper">
+        <div class="content-container">
+            <md-card *ngFor="let recipe of recipes" class="recipe-container">
+                <a routerLink="/recipes/{{recipe.$key}}"><img appZoomImage md-card-image src="{{recipe.image}}" alt="recipe-image"></a>
+                <md-card-content>
+                    <h3><a routerLink="/recipes/{{recipe.$key}}">{{recipe.title}}</a></h3>
+                    <p class="createdOn">
+                        <span>{{recipe.createdOn | date}}</span>
+                    </p>
+                    <rating [(ngModel)]="recipe.likes" [max]="10" [float]="true" [readonly]="true"></rating>
+                    <p>
+                        <span><em>{{recipe.description}}</em></span>
+                    </p>
+                </md-card-content>
+            </md-card>
+        </div>
+        <app-calorie-calculator></app-calorie-calculator>
+    </div>
+</div>

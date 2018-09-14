@@ -1,0 +1,77 @@
+<div class="container">
+  <h2>Create New Activity</h2>
+  <form [formGroup]="activityForm" class="activity-form" (ngSubmit)="onSubmit()">
+
+    <div class="upload-control">
+      <button md-fab type="button" md-raised-button (click)="imgFileInput.click()"><md-icon>insert_photo</md-icon></button>
+      <span *ngIf="upload">Selected photo: {{upload?.name}}</span>
+      <input hidden type="file" #imgFileInput (change)="detectFile($event)" />
+    </div>
+
+    <md-input-container class="form-control">
+      <input type="text" mdInput placeholder="Title" name="title" [(ngModel)]="title" [formControl]="titleFormControl" required>
+      <md-error *ngIf="titleFormControl.hasError('pattern')">
+        Please enter a valid title.
+      </md-error>
+      <md-error *ngIf="titleFormControl.hasError('required')">
+        Title is <strong>required</strong>
+      </md-error>
+    </md-input-container>
+
+    <md-select placeholder="Choose Category" class="form-control" name="category" [(ngModel)]="category" [formControl]="categoryFormControl"
+      required>
+      <md-error *ngIf="categoryFormControl.hasError('pattern')">
+        Please enter a valid category.
+      </md-error>
+      <md-error *ngIf="categoryFormControl.hasError('required')">
+        Category is <strong>required</strong>
+      </md-error>
+      <md-option *ngFor="let category of categories" [value]="category">
+        {{category}}
+      </md-option>
+    </md-select>
+
+    <md-input-container class="form-control">
+      <textarea mdInput placeholder="Short Description" name="description" #inputdescription maxlength="500" [(ngModel)]="description"
+        [formControl]="descriptionFormControl" required></textarea>
+      <md-hint align="end">{{inputdescription.value.length}} / 500</md-hint>
+      <md-error *ngIf="descriptionFormControl.hasError('pattern')">
+        Please enter a valid description.
+      </md-error>
+      <md-error *ngIf="descriptionFormControl.hasError('required')">
+        Description is <strong>required</strong>
+      </md-error>
+    </md-input-container>
+
+    <md-input-container class="form-control">
+      <textarea mdInput placeholder="Additional Info / Requirements" name="additionalInfo" #inputinfo maxlength="500" [(ngModel)]="additionalInfo"
+        [formControl]="additionalInfoFormControl" required></textarea>
+      <md-hint align="end">{{inputinfo.value.length}} / 500</md-hint>
+      <md-error *ngIf="additionalInfoFormControl.hasError('pattern')">
+        Please enter a valid additional information.
+      </md-error>
+      <md-error *ngIf="additionalInfoFormControl.hasError('required')">
+        Additional information is <strong>required</strong>
+      </md-error>
+    </md-input-container>
+
+    <md-input-container class="form-control">
+      <input mdInput placeholder="Date and time" name="dateAndTime" [formControl]="eventDateFormControl" [value]="dateAndTime | date: 'short'"
+        [(ngModel)]="dateAndTime" dateTimePicker (onChange)="setMoment($event)" required/>
+      <md-error *ngIf="eventDateFormControl.hasError('required')">
+        Date is <strong>required</strong>
+      </md-error>
+    </md-input-container>
+
+    <md-input-container class="form-control">
+      <input mdInput type="text" placeholder="Location" name="location" [formControl]="locationFormControl" [(ngModel)]="location" />
+      <md-error *ngIf="locationFormControl.hasError('required')">
+        Location is <strong>required</strong>
+      </md-error>
+    </md-input-container>
+
+    <div class="btn-container">
+      <button md-raised-button color="primary" type="submit" class="button" [disabled]="!activityForm.valid">Create Activity</button>
+    </div>
+  </form>
+</div>

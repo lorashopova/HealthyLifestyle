@@ -1,0 +1,40 @@
+.user-input {
+    font-size: 1.4em;
+    width: 100%;
+    margin-bottom: 2%;
+}
+md-toolbar{
+    margin-bottom: 2%;
+}
+
+.registerInfo{
+    margin-bottom: 3%;
+}
+
+.container{
+    width: 40%;
+    margin: 0 auto;
+}
+
+.isTrainer{
+    padding-bottom: 4%;
+}
+
+.upload{
+    padding-bottom: 4%;
+}
+
+.upload-btn{
+    margin-bottom: 4%;
+}
+
+
+.signup-btn{
+    width: 10%;
+    margin: 0 auto;
+}
+
+.signup-btn button{
+    font-size: 1.2em;
+    margin: 0 auto;
+}

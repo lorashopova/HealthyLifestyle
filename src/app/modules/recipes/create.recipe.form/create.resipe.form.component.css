@@ -1,0 +1,40 @@
+.recipe-form {
+  padding: 20px 250px;
+  color: #3D3838;
+}
+
+h2 {
+  padding: 0 100px;
+  color: #3D3838;
+}
+
+.form-control, md-select md-option {
+  width: 100%;
+  font-size: 1.2em;
+}
+
+button {
+  color: #000;
+}
+
+div {
+  padding-bottom: 20px;
+}
+
+md-input-container, md-select {
+  margin-bottom: 20px;
+}
+
+.preview {
+  width: 80%;
+  margin: 10px 20px 50px;
+}
+
+table{
+  width: 100%;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}

@@ -1,0 +1,102 @@
+<div class="subnav">
+        <a md-button routerLink="/recipes">
+                Back to Recipes
+        </a>
+        <a md-button class="create" *ngIf="isAuthenticated()" routerLink="/recipes/create">
+                Create Recipe
+        </a>
+</div>
+<div class="wrapper">
+        <div class="container">
+                <md-card class="info-container">
+                        <img md-card-image src="{{recipe?.image}}" alt="recipe-image">
+                        <md-card-content>
+                                <p class="title">{{recipe?.title}}</p>
+                                <rating [(ngModel)]="starsCount" [max]="10" [float]="true" [readonly]="true"></rating>
+                                <p>by {{recipe?.author}} <strong>|</strong> on {{recipe?.createdOn | date}}</p>
+                                <p>category {{recipe?.category}}</p>
+                                <p><em>{{recipe?.description}}</em></p>
+                        </md-card-content>
+                        <md-card-actions *ngIf="isAuthenticated()">
+                                <button md-button (click)="rateRecipe(recipe.$key)">
+                                <md-icon>star_rate</md-icon>
+                                Like
+                        </button>
+                                <button md-button (click)="openDialog()">
+                                <md-icon>share</md-icon>
+                                Share
+                        </button>
+                                <button *ngIf=isAuthor(recipe?.userId) md-button routerLink="/recipes/{{recipeKey}}/edit">
+                                <md-icon>mode_edit</md-icon>
+                                Edit
+                        </button>
+                                <button *ngIf=isAuthor(recipe?.userId) md-button (click)="remove()">
+                                <md-icon>delete</md-icon>
+                                Delete
+                        </button>
+                        </md-card-actions>
+                </md-card>
+                <div class="additional-info">
+                        <h3 class="ingredients-title">Ingredients</h3>
+                        <ul *ngFor="let ingredient of recipe?.ingradients">
+                                <li>{{ingredient}}</li>
+                        </ul>
+                        <hr/>
+                        <h3 class="steps-title">How to Make it</h3>
+                        <p><strong>Step 1</strong></p>
+                        <p>{{recipe?.step1}}</p>
+                        <p *ngIf="recipe?.step2"><strong>Step 2</strong></p>
+                        <p>{{recipe?.step2}}</p>
+                        <p *ngIf="recipe?.step3"><strong>Step 3</strong></p>
+                        <p>{{recipe?.step3}}</p>
+                </div>
+                <div class="comments">
+                        <h3 class="comments-title">Comments</h3>
+                        <span *ngIf="recipe?.comments">{{commentsLength}}</span>
+                        <div *ngIf="recipe?.comments">
+                                <div *ngFor="let comment of recipe?.comments">
+                                        <md-card class="comments-container">
+                                                <md-card-header>
+                                                        <img md-card-avatar src="{{comment.profileImage.url}}">
+                                                        <md-card-title>{{comment.username}}</md-card-title>
+                                                        <md-card-subtitle>on {{comment.date | date}}</md-card-subtitle>
+                                                </md-card-header>
+                                                <md-card-content>
+                                                        <p>
+                                                                {{comment.textComment}}
+                                                        </p>
+                                                </md-card-content>
+                                        </md-card>
+                                </div>
+                        </div>
+                        <div *ngIf="!recipe?.comments">
+                                <p> No Comments yet</p>
+                        </div>
+                </div>
+                <app-comments></app-comments>
+        </div>
+        <aside>
+                <p>Nutritional Information</p>
+                <table class="table" cellspacing="0">
+                        <tr>
+                                <td class="nutrition">Calories per serving:</td>
+                                <td cass="size">{{recipe?.calories}}</td>
+                        </tr>
+                        <tr>
+                                <td class="nutrition">Protein per serving:</td>
+                                <td cass="size">{{recipe?.protein | grams}}</td>
+                        </tr>
+                        <tr>
+                                <td class="nutrition">Fat per serving:</td>
+                                <td cass="size">{{recipe?.fat | grams}}</td>
+                        </tr>
+                        <tr>
+                                <td class="nutrition">Carbs per serving:</td>
+                                <td cass="size">{{recipe?.carbs | grams}}</td>
+                        </tr>
+                </table>
+                <p>Prepare Time: <span class="time">{{recipe?.prepareTime}} min</span></p>
+                <p>Yield: <span class="yield">{{recipe?.yields}}</span></p>
+
+        </aside>
+</div>

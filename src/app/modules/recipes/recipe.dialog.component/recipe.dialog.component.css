@@ -1,0 +1,14 @@
+md-dialog-content, md-input-container{
+    width: 100%;
+}
+
+button:first-of-type{
+    margin-right: 50%;
+}
+
+input[type=text]{
+    -webkit-user-select: text;  /* Chrome all / Safari all */
+    -moz-user-select: text;     /* Firefox all */
+    -ms-user-select: text;      /* IE 10+ */
+    user-select: text;          /* Likely future */   
+}

@@ -1,0 +1,28 @@
+<div class="subnav">
+    <app-sort [items]="articles" (onOrderByDateAsc)="dataReceivedByDateAsc($event)" (onOrderByDateDesc)="dataReceivedByDateDesc($event)" (onOrderByTitleAsc)="dataReceivedByTitleAsc($event)"  (onOrderByTitleDesc)="dataReceivedByTitleDesc($event)"></app-sort>
+    <button md-button *ngIf="isAuthenticated()" routerLink="/nutrition/create">Create Article</button>
+    <input type="text" placeholder="Search for..." [(ngModel)]="searchWord" (ngModelChange)="search()">
+</div>
+<div class="container">
+    <div class="content-container">
+        <div class="meal-container">
+            <h2>Short Articles About Healthy Eating</h2>
+            <img src="/assets/images/plan-food.jpg" alt="food-image" class="main-img">
+        </div>
+        <div class="article-container">
+            <table class="article-content">
+                <div *ngFor="let article of articles">
+                    <tr>
+                        <td class="article-image"><img src="{{article?.image.url}}" alt="image"></td>
+                        <td class="article-info">
+                            <p class="title">{{article?.title}}</p>
+                            <p class="date"><em>published on {{article?.createdOn | date}}</em></p>
+                            <p class="description">{{article?.description}}</p>
+                        </td>
+                    </tr>
+                </div>
+            </table>
+        </div>
+    </div>
+    <app-calorie-calculator></app-calorie-calculator>
+</div>

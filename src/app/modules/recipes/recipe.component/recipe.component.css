@@ -1,0 +1,128 @@
+.info-container {
+  border-radius: 5px;
+  border: solid 1px gray;
+  margin: 50px 0;
+}
+
+.aside-info {
+  font-size: 16px;
+}
+
+.title {
+  color: #4A4A4A;
+  font-size: 16px;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 15px;
+}
+
+md-card md-icon {
+  color: #96c421;
+}
+
+.ingredients-title, .comments-title {
+  margin: 30px 0;
+}
+
+.subnav {
+  text-align: right;
+  clear: both;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.create {
+  text-align: center;
+}
+
+md-card-content {
+  margin-top: 25px;
+}
+
+md-card-content p {
+  margin-top: 15px;
+}
+
+h3 {
+  color: #96c421;
+  display: inline-block;
+}
+
+p, li {
+  color: #4A4A4A;
+  text-align: justify;
+}
+
+.comments-container md-card-header {
+  border-bottom: 1px solid #EEE8E8;
+  margin: 0;
+  padding: 10px;
+  background-color: #F6F6F6;
+}
+
+.comments-container md-card-content {
+  border-top: 1px solid #EEE8E8;
+  margin: 0;
+  padding: 10px;
+  text-align: justify;
+}
+
+.comments-container {
+  margin: 20px 0;
+  border: 1px solid gray;
+}
+
+rating {
+  float: right;
+}
+
+.comments span {
+  display: inline-block;
+  color: #86AF1D;
+  background-color: #E0E0E0;
+  width: 25px;
+	height: 20px;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+  border-radius: 50px;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size: 15px;
+}
+
+.wrapper{
+  display: flex;
+  flex-direction: row;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.container {
+  flex: 1;
+  margin-right: 10%;
+  font-size: 18px;
+}
+
+aside {
+  width: 12rem;
+  text-align: right;
+  margin-top: 20px;
+}
+
+aside p{
+  color: #96c421;
+  font-size: 18px;
+}
+
+.nutrition{
+  text-align: left;
+}
+
+.size{
+  text-align: left;
+}
+
+.time, .yield{
+  color: #383838;
+  font-size: 16px;
+}

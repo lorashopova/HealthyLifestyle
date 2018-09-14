@@ -1,0 +1,16 @@
+<h3 md-dialog-title><em>Explore all avaiable activities in Bulgaria</em></h3>
+<md-dialog-content class="map-container">
+  <div class="map-container">
+    <agm-map class="map" [zoom]="7" [latitude]="42.5" [longitude]="25.50">
+      <agm-marker *ngFor="let marker of markers" [latitude]="marker.lat" [longitude]="marker.lng">
+        <agm-info-window>
+          <img class="map-image" [src]="marker.imageUrl">
+          <a (click)="close()" routerLink="/activities/{{marker.id}}">
+             {{marker.title}}
+          </a>
+        </agm-info-window>
+      </agm-marker>
+    </agm-map>
+  </div>
+  <p><i>*Click on markers for additional information</i></p>
+</md-dialog-content>

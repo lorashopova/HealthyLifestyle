@@ -1,0 +1,21 @@
+.map {
+    width: 1000px;
+    height: 500px;
+}
+
+.map-image {
+    height: 60px;
+    width: 60px;
+    vertical-align: middle;
+    border-radius: 50%;
+}
+
+.map-container {
+    width: 100%;
+    height: 100%;
+}
+
+h3 { 
+    color: #96c421;
+}
+

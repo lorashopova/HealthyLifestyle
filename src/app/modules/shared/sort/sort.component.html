@@ -1,0 +1,26 @@
+<button md-button [mdMenuTriggerFor]="byTitle">
+  Order by Title
+</button>
+<md-menu #byTitle="mdMenu">
+  <button md-menu-item (click)="orderByTitleAsc()">
+          <md-icon>arrow_upward</md-icon>
+            <span>Order Ascending</span>
+          </button>
+  <button md-menu-item (click)="orderByTitleDesc()">
+          <md-icon>arrow_downward</md-icon>
+          <span>Order Descending</span>
+  </button>
+</md-menu>
+<button md-button [mdMenuTriggerFor]="byDate">
+  Order by Date
+</button>
+<md-menu #byDate="mdMenu">
+  <button md-menu-item (click)="orderByDateAsc()">
+            <md-icon>arrow_upward</md-icon>
+            <span>Order Ascending</span>
+          </button>
+  <button md-menu-item (click)="orderByDateDesc()">
+            <md-icon>arrow_downward</md-icon>
+            <span>Order Descending</span>
+          </button>
+</md-menu>

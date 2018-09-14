@@ -1,0 +1,101 @@
+<div class="container">
+  <form [formGroup]="registerForm">
+    <md-toolbar>Login information</md-toolbar>
+    <div class="registerInfo">
+      <div>
+        <md-input-container class="user-input">
+          <input mdInput [(ngModel)]="email" placeholder="Email" [formControl]="emailFormControl">
+          <md-error *ngIf="emailFormControl.hasError('pattern')">
+            Please enter a valid email address
+          </md-error>
+          <md-error *ngIf="emailFormControl.hasError('required')">
+            Email is <strong>required</strong>
+          </md-error>
+        </md-input-container>
+      </div>
+
+      <div>
+        <md-input-container class="user-input">
+          <input type="password" mdInput [(ngModel)]="password" placeholder="Password" [formControl]="passwordFormControl">
+          <md-error *ngIf="passwordFormControl.hasError('pattern')">
+            Please enter a valid password
+          </md-error>
+          <md-error *ngIf="passwordFormControl.hasError('required')">
+            Password is <strong>required</strong>
+          </md-error>
+        </md-input-container>
+      </div>
+
+      <div>
+        <md-input-container class="user-input">
+          <input type="password" mdInput [(ngModel)]="confirmPassword" placeholder="Confirm Password" [formControl]="confirmPasswordControl">
+          <md-error *ngIf="confirmPasswordControl.hasError('pattern')">
+            Please enter a valid confirm password
+          </md-error>
+          <md-error *ngIf="confirmPasswordControl.hasError('required')">
+            Confirm Password is <strong>required</strong>
+          </md-error>
+          <md-error *ngIf="confirmPasswordControl.errors?.notEquivalent">
+            Confirm Password <strong>does not match</strong>
+          </md-error>
+        </md-input-container>
+      </div>
+    </div>
+
+    <md-toolbar>User information</md-toolbar>
+    <div class="userInfo">
+      <button class="upload-btn" md-fab type="button" md-raised-button (click)="imgFileInput.click()"><md-icon>insert_photo</md-icon></button>
+      <span *ngIf="upload">Selected photo: {{upload?.name}}</span>
+      <input hidden type="file" #imgFileInput (change)="detectFile($event)" />
+
+      <md-input-container class="user-input">
+        <input mdInput [(ngModel)]="username" placeholder="Username" [formControl]="usernameFormControl">
+        <md-error *ngIf="emailFormControl.hasError('pattern')">
+          Please enter a valid username
+        </md-error>
+        <md-error *ngIf="emailFormControl.hasError('required')">
+          Username is <strong>required</strong>
+        </md-error>
+      </md-input-container>
+
+      <md-input-container class="user-input">
+        <input mdInput [(ngModel)]="firstName" placeholder="First Name" [formControl]="firstNameFormControl">
+        <md-error *ngIf="firstNameFormControl.hasError('pattern')">
+          Please enter a valid first name
+        </md-error>
+        <md-error *ngIf="firstNameFormControl.hasError('required')">
+          First name is <strong>required</strong>
+        </md-error>
+      </md-input-container>
+
+      <md-input-container class="user-input">
+        <input mdInput [(ngModel)]="lastName" placeholder="Last Name" [formControl]="lastNameFormControl">
+        <md-error *ngIf="lastNameFormControl.hasError('pattern')">
+          Please enter a valid last name
+        </md-error>
+        <md-error *ngIf="lastNameFormControl.hasError('required')">
+          Last name is <strong>required</strong>
+        </md-error>
+      </md-input-container>
+
+      <div class="isTrainer">
+        <md-checkbox formControlName="isTrainerFormControl" [(ngModel)]="isTrainer">Are you trainer?</md-checkbox>
+      </div>
+
+      <md-input-container *ngIf="isTrainer" class="user-input">
+        <input mdInput [(ngModel)]="sport" placeholder="Sport" [formControl]="sportFormControl">
+        <md-error *ngIf="emailFormControl.hasError('pattern')">
+          Please enter a valid sport
+        </md-error>
+        <md-error *ngIf="emailFormControl.hasError('required')">
+          Sport is <strong>required if you are trainer</strong>
+        </md-error>
+      </md-input-container>
+    </div>
+
+    <div class="signup-btn">
+      <button md-raised-button color="primary" type="submit" class="button" [disabled]="!registerForm.valid" (click)='signUp()'>Sign Up</button>
+    </div>
+
+  </form>
+</div>

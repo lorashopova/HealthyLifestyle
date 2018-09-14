@@ -1,0 +1,19 @@
+<h1>Routines</h1>
+<div class="container">
+  <div class="routine">
+    <div class="id info">№</div>
+    <div class="name info">Exercise</div>
+    <div class="image info">Example</div>
+    <div class="count info">Sets</div>
+    <div class="count info">Repeats</div>
+    <div class="count info">Rest, [Min]</div>
+  </div>
+  <div class="routine" *ngFor="let routine of workout?.routines; let i = index">
+    <div class="id values">{{i+1}}</div>
+    <div class="name values">{{routine.exercise.name}}</div>
+    <img src="{{routine.exercise?.image.url}}" alt="Example image">
+    <div class="count values">{{routine.seriesCount}}</div>
+    <div class="count values">{{routine.repeatTimes}}</div>
+    <div class="count values">{{routine.restingTime}}</div>
+  </div>
+</div>

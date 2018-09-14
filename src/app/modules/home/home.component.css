@@ -1,0 +1,68 @@
+* {
+    font-family: "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+    text-align: center;
+}
+
+.home-container{
+    overflow: hidden;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+h1 {
+    font: 100 60px/1.2 'Titillium Web', sans-serif;
+    text-align: center;
+}
+
+h1 > p {
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+    color: #96c421;
+    font: 200 80px/1.2 'Titillium Web', sans-serif;
+    text-shadow: 3px 3px 3px #fff;    
+}
+
+h2 {
+    font: 200 40px/1.2 'Titillium Web', sans-serif;
+    margin-bottom: 40px;
+}
+
+h3 {
+    font: 200 25px/1.2 'Titillium Web', sans-serif;
+    color: #96c421;
+}
+
+.details {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    flex-direction: row;
+    margin: 0 auto;
+}
+
+md-card{
+    outline: none;
+    max-width: 18vw;
+    margin: 20px;
+    padding: 0;
+}
+
+.header-img{
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 20px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+}
+
+.item {
+    margin-bottom: 10%;
+}
+img {
+    cursor: pointer;
+    height: 200px;
+    max-width: 100%;
+}
+
+md-card-title{
+    text-align: center;
+    padding: 0 10px;
+}
+

@@ -1,0 +1,47 @@
+.form-container h2 {
+  text-align: center;
+}
+
+.routine-form{
+    padding: 20px 50px;
+    color: #3D3838;
+  }
+  
+h2 {
+    padding:0 50px;
+    color: #3D3838;
+  }
+
+  .form-control, md-select md-option{
+    width: 100%;
+    font-size: 1.2em;
+  }
+
+  button{
+    color: #000;
+  }
+
+  div{
+    padding-bottom: 20px;
+  }
+
+  md-input-container, md-select{
+    margin-bottom: 20px;
+  }
+  .preview{
+    width: 50%;
+    margin: 10px 0px 50px;
+  }
+
+.buttons{
+  float: right;
+}
+
+button.success {
+  background: #b39cdb;
+  color: #fff;
+}
+
+button.cancel {
+  color: #b39cdb;
+}
